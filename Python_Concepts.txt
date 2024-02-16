@@ -1,0 +1,63 @@
+Lists: is a collection which is ordered and changeable. Allows duplicate members.
+ -Create: myList = [item1, item2, item3]
+ -Access items: myList[index], myList[indexRange], myList[negativeIndex]
+ -Append: myList.append(item)
+ -Append from another list: myList.extend(list)
+ -Insert at a specified index: myList.insert(index, item)
+ -Remove: myList.remove(listItem)
+ -Remove from specified index: myList.pop(index)
+ -Remove last item: myList.pop()
+ -Clear list: myList.clear()
+ -Loop:
+    -for "x in myList:"
+        print(item)
+    -for i in range(len(myList))
+        print(myList[i])
+ -Sorting:
+    -myList.sort() - ascending
+    -myList.sort(reverse = True) - descending
+ -Reverse: reverses the current sorting order of the elements.
+ -Copy:You cannot copy a list simply by typing list2 = list1, because: list2 will only be a reference to list1, and changes made in list1 will automatically also be made in list2.
+    -list2 = myList.copy()
+
+
+
+Tuple: is a collection which is ordered and unchangeable. Allows duplicate members. (IMMUTABLE)
+ -Create: myTuple = (item1, item2, item3)
+ -Access items: myTuple[index], myTuple[indexRange], myTuple[negativeIndex]
+ -Update: Workaround: Convert into a list, append to list and convert back to Tuple
+ -Add: create a new tuple with the item(s), and add it to the existing tuple
+ -Delete: del myTuple
+ -Unpacking:
+    -fruits = ("apple", "banana", "cherry")
+     (green, yellow, red) = fruits
+     print(green) - "apple"
+     print(yellow) - "banana"
+     print(red) - "cherry"
+
+
+
+Set: is a collection which is unordered, unchangeable*, and unindexed. No duplicate members. Items can be removed or added.
+ -Create: mySet = {item1,item2,item3}
+ -Access items: Only through a for loop, as they cannot be accessed by index or key.
+ -Remove items: mySet.remove(item) / mySet.discard(item)
+ -Remove random: mySet.pop()
+ -Empty set: mySet.clear()
+ -Delete set: del mySet
+ -Join:
+    -union: returns a new set containing items from both sets
+    -update: insert all the items from one set to another
+ -Keep duplicates: mySet.intersection_update(mySet2)
+ -Intersection: returns a new set containing items that are present in both sets.
+ -Keep all, but not duplicates: mySet.symmetric_difference_update(mySet2)
+
+
+
+Dictionary: s a collection which is ordered** and changeable. No duplicate members.
+ -Create: myDict = {
+    "key1":"value1",
+    "key2":"value2",
+    "key3":"value3"
+ }
+          myDict = dict(name = "John", age = 36, country = "Norway)
+ -Get Keys: myDict.keys()
