@@ -14,6 +14,9 @@ print("Object created!\n")
 # name.get_name_combinations()
 # print(f"Name combinations: {name.name_combinations}")
 
-confidence_score = name.match_score_v2()
+# confidence_score = name.match_score_v2()
+# print(confidence_score)
+
+confidence_score = name.match_score_v3()
 print(confidence_score)
 

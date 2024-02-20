@@ -1,5 +1,6 @@
 import itertools
 import math
+import pandas
 CHARACTER_EXCLUSION = [',','-',' ','\'']
 CONFIDENCE_SCORE = 100
 class Name:
@@ -18,7 +19,7 @@ class Name:
     def __init__(self,internal_name,external_name):
 
         self.internal_name = Name.cleanup(internal_name)
-        self.external_name = external_name
+        self.external_name = Name.cleanup(external_name)
         self.name_combinations = []
 
 
@@ -102,27 +103,30 @@ class Name:
 
         for index in range(0,len(li_external_name)):
             ext_name_element = li_external_name[index]
+            #Check if each word within external name can be found in internal name
             if ext_name_element in li_internal_name:
                 confidence_score+=char_seq_score
             else:
+                #Original logic - start
                 internal_seq_length = len(li_internal_name[index])
                 external_seq_length = len(ext_name_element)
                 char_score = round(char_seq_score / internal_seq_length,2)
                 if ext_name_element in li_internal_name[index]:
                     confidence_score+=(char_score*external_seq_length)
-                # if internal_seq_length == external_seq_length:
-                #     i = 0
-                #     for j in range(0, external_seq_length):
-                #         char = ext_name_element[j]
-                #         if char == li_internal_name[index][i]:
-                #             confidence_score+=char_score
-                #         i+=1
+                else:
+                    for letter in ext_name_element:
+                        if letter in li_internal_name[index]:
+                            confidence_score+=char_score
+                # Original logic - end
         dict_details = {
             "Internal name": self.internal_name,
             "External name": self.external_name,
             "Confidence score": round(confidence_score,2)
         }
         return dict_details
+
+
+
 
 
 
